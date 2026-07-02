@@ -25,9 +25,6 @@ export function SiteHeader() {
             alt="Pau Hana"
             style={{ height: 72, width: "auto" }}
           />
-          <span className="text-xs font-bold tracking-[0.18em] text-black uppercase">
-            Shave Ice
-          </span>
         </a>
 
         <button
