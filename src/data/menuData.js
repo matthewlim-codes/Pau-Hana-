@@ -1,110 +1,144 @@
 export const sizes = [
   {
-    name: "Keiki",
-    price: "$5",
-    description: "A smaller shave ice for little hands or a lighter Pau Hana treat.",
+    name: "Small",
+    price: "$5.99",
+    description: "A focused shave ice size for a quick Pau Hana treat.",
   },
   {
-    name: "Classic",
-    price: "$7",
-    description: "Our everyday size with room for up to three flavors.",
-  },
-  {
-    name: "Ohana",
-    price: "$10",
-    description: "A generous bowl made for big cravings and layered toppings.",
+    name: "Regular",
+    price: "$6.99",
+    description: "The classic shave ice size with room for up to two flavors.",
   },
 ];
 
+export const iceCreamAddOn = {
+  price: "+$1.50",
+  options: ["Ube", "Mango", "Vanilla", "Haupia (coconut)"],
+};
+
 export const flavors = [
+  "Strawberry",
   "Pineapple",
-  "Mango",
-  "Guava",
-  "Passion Fruit",
+  "Cotton Candy",
   "Coconut",
   "Lychee",
-  "Strawberry",
-  "Blue Vanilla",
-  "Lilikoi",
-  "Green Tea",
-  "Haupia",
-  "Li Hing Plum",
+  "Passionfruit",
+  "Li Hing Mui",
+  "Calamansi",
+  "Dragonfruit",
+  "Rainbow",
+  "Cherry",
+  "Blue Raspberry",
+  "Tiger's Blood",
+  "Watermelon",
+  "Root Beer",
+  "Bubble Gum",
+  "Sour Apple",
+  "Ube Cream",
+  "Melona",
+  "P.O.G.",
+  "Banana",
+  "Mango",
 ];
 
 export const toppings = [
   {
-    name: "Snow Cap",
-    price: "+$1",
-    description: "A silky drizzle of sweetened condensed milk.",
+    name: "Fresh Mochi",
+    price: "+$1.00",
+    description: "Soft chewy mochi pieces added over the ice.",
   },
   {
-    name: "Mochi",
-    price: "+$1",
-    description: "Soft, chewy bites for a classic island finish.",
+    name: "Boba Pearls",
+    price: "+$1.00",
+    description: "Sweet pearls for extra texture in every bite.",
   },
   {
-    name: "Azuki Beans",
-    price: "+$1",
-    description: "Lightly sweet beans layered under the ice.",
+    name: "Fruit Jelly",
+    price: "+$1.00",
+    description: "Bright jelly pieces that pair well with tropical flavors.",
   },
   {
-    name: "Li Hing Mui",
-    price: "+$1",
-    description: "A tangy-salty sprinkle with local-style punch.",
+    name: "Gummy Bears",
+    price: "+$1.00",
+    description: "A playful topping for a sweeter shave ice build.",
   },
   {
-    name: "Vanilla Ice Cream Base",
-    price: "+$2",
-    description: "A creamy scoop tucked underneath the shave ice.",
-  },
-  {
-    name: "Haupia Cream",
-    price: "+$2",
-    description: "Coconut cream for a smooth island-inspired finish.",
+    name: "Condensed Cream",
+    price: "+$1.00",
+    description: "A creamy finish drizzled over the top.",
   },
 ];
 
 export const specialties = [
   {
-    name: "Japantown Sunset",
-    price: "$9",
-    flavors: ["Mango", "Guava", "Passion Fruit"],
-    topping: "Snow cap",
+    name: "Halo-Halo",
+    price: "$9.99",
     description:
-      "Bright tropical layers inspired by warm evenings in San Jose's Japantown.",
+      "Milk base syrup, fruit jellies, boba pearls, halo mix, ube ice cream, condensed cream, fruity pebbles, and flan.",
   },
   {
-    name: "Manoa Mist",
-    price: "$9",
-    flavors: ["Green Tea", "Haupia", "Coconut"],
-    topping: "Mochi",
+    name: "Dole Whip",
+    price: "$9.99",
     description:
-      "A calm, creamy blend named for lush green valleys and slow afternoons.",
+      "Creamy pineapple base syrup, vanilla ice cream, whipped cream, crushed pineapple, and condensed cream.",
   },
   {
-    name: "Pau Hana Classic",
-    price: "$8",
-    flavors: ["Strawberry", "Pineapple", "Blue Vanilla"],
-    topping: "Li hing mui",
+    name: "Mangonada",
+    price: "$9.99",
     description:
-      "Friendly, familiar, and easy to love after work or after school.",
+      "Mango syrup, mango ice cream, diced mango, chamoy, tajin, and tamarind straw candy.",
   },
   {
-    name: "Ohana Bowl",
-    price: "$11",
-    flavors: ["Lychee", "Lilikoi", "Mango"],
-    topping: "Vanilla ice cream base and haupia cream",
+    name: "Horchata",
+    price: "$9.99",
     description:
-      "A fuller specialty with soft tropical flavor and a creamy finish.",
+      "Horchata cream base, vanilla ice cream, whipped cream, condensed cream, horchata drizzle, and crushed toast crunch.",
+  },
+  {
+    name: "Mac Nut Coffee",
+    price: "$9.99",
+    description:
+      "Coffee cream base, vanilla ice cream, condensed cream, chocolate syrup, macadamia nuts, and chocolate cream wafer.",
+  },
+  {
+    name: "Strawberry Shortcake",
+    price: "$9.99",
+    allergen: "Contains nuts & milk",
+    description:
+      "Strawberry cream base, vanilla ice cream, strawberry syrup, condensed cream, granola crumbs, and strawberry cream wafer.",
   },
 ];
 
 export const buildSteps = [
-  "Choose a size.",
-  "Pick up to three shave ice flavors.",
-  "Add a creamy base or island-style toppings.",
-  "Finish with snow cap, li hing mui, or both.",
+  {
+    title: "Choose a size",
+    description: "Small $5.99 or regular $6.99.",
+  },
+  {
+    title: "Add ice cream",
+    description: "Ube, mango, vanilla, or haupia (coconut) for +$1.50.",
+  },
+  {
+    title: "Choose up to two flavors",
+    description: "Mix classic, fruity, and local-style syrup options.",
+  },
+  {
+    title: "Add toppings",
+    description: "Fresh mochi, boba pearls, fruit jelly, gummy bears, or condensed cream for +$1.00 each.",
+  },
 ];
+
+export const specialtyNotes = [
+  "All specialties come with ice cream and toppings.",
+  "Regular sizes only.",
+];
+
+export const iceCreamMenu = {
+  title: "Ice Cream",
+  price: "$3.00 per scoop",
+  serving: "Cup",
+  flavors: ["Ube", "Mango", "Vanilla", "Haupia (coconut)"],
+};
 
 export const galleryItems = [
   {
