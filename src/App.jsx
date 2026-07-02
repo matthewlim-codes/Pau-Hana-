@@ -76,7 +76,7 @@ function Hero() {
             Family-run in San Jose's Japantown
           </p>
           <h1 className="text-5xl font-black leading-[0.92] tracking-[-0.07em] text-black sm:text-6xl lg:text-7xl">
-            Hawaiian shave ice in San Jose, made for your Pau Hana moment.
+            Pau Hana
           </h1>
           <p className="mt-6 max-w-lg text-lg leading-8 text-black/70 sm:text-xl">
             A relaxed after-work stop for fine shave ice, island-inspired
