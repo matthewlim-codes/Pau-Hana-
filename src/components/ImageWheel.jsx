@@ -1,15 +1,13 @@
-const TILES = [
-  { bg: "linear-gradient(155deg, #fbcfe8 0%, #f472b6 60%, #db2777 100%)" },
-  { bg: "linear-gradient(155deg, #fef3c7 0%, #fbbf24 60%, #d97706 100%)" },
-  { bg: "linear-gradient(155deg, #ede9fe 0%, #a78bfa 60%, #7c3aed 100%)" },
-  { bg: "linear-gradient(155deg, #d1fae5 0%, #34d399 60%, #059669 100%)" },
-  { bg: "linear-gradient(155deg, #dbeafe 0%, #60a5fa 60%, #2563eb 100%)" },
-  { bg: "linear-gradient(155deg, #fee2e2 0%, #f87171 60%, #dc2626 100%)" },
-  { bg: "linear-gradient(155deg, #ffedd5 0%, #fb923c 60%, #ea580c 100%)" },
-  { bg: "linear-gradient(155deg, #ccfbf1 0%, #2dd4bf 60%, #0d9488 100%)" },
-  { bg: "linear-gradient(155deg, #fae8ff 0%, #e879f9 60%, #a21caf 100%)" },
-  { bg: "linear-gradient(155deg, #fef9c3 0%, #facc15 60%, #ca8a04 100%)" },
-];
+import img1 from "@assets/Gemini_Generated_Image_csb9shcsb9shcsb9_1782954132879.png";
+import img2 from "@assets/Gemini_Generated_Image_akuzr1akuzr1akuz_1782954132879.png";
+import img3 from "@assets/Gemini_Generated_Image_fi8tryfi8tryfi8t_1782954132880.png";
+import img4 from "@assets/Gemini_Generated_Image_zbxggvzbxggvzbxg_1782954132880.png";
+import img5 from "@assets/Gemini_Generated_Image_xsqrtuxsqrtuxsqr_1782954132880.png";
+import img6 from "@assets/Gemini_Generated_Image_ddaw5cddaw5cddaw_1782954132880.png";
+import img7 from "@assets/Gemini_Generated_Image_8nqcun8nqcun8nqc_1782954132880.png";
+import img8 from "@assets/Gemini_Generated_Image_t4yk86t4yk86t4yk_1782954132880.png";
+
+const TILES = [img1, img2, img3, img4, img5, img6, img7, img8];
 
 const RADIUS = 780;
 const TILE_W = 324;
@@ -28,7 +26,7 @@ export function ImageWheel({ className = "" }) {
         flexShrink: 0,
       }}
     >
-      {TILES.map((tile, i) => {
+      {TILES.map((src, i) => {
         const angleDeg = (360 / tileCount) * i;
         const tilt = Math.round(Math.sin((angleDeg * Math.PI) / 180) * 7);
 
@@ -55,21 +53,32 @@ export function ImageWheel({ className = "" }) {
                   width: "100%",
                   height: "100%",
                   borderRadius: 40,
-                  background: tile.bg,
+                  overflow: "hidden",
                   boxShadow:
                     "0 24px 72px rgba(0,0,0,0.18), 0 8px 24px rgba(0,0,0,0.10), inset 0 2px 0 rgba(255,255,255,0.52)",
                   transform: `rotate(${tilt}deg)`,
-                  overflow: "hidden",
                   position: "relative",
+                  backgroundColor: "#f5f5f5",
                 }}
               >
+                <img
+                  src={src}
+                  alt=""
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "center top",
+                    display: "block",
+                  }}
+                />
+                {/* glossy sheen */}
                 <div
                   style={{
                     position: "absolute",
                     inset: 0,
                     background:
-                      "linear-gradient(155deg, rgba(255,255,255,0.38) 0%, rgba(255,255,255,0.08) 42%, transparent 66%)",
-                    borderRadius: 40,
+                      "linear-gradient(155deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.04) 40%, transparent 62%)",
                     pointerEvents: "none",
                   }}
                 />
