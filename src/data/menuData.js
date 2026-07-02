@@ -11,11 +11,6 @@ export const sizes = [
   },
 ];
 
-export const iceCreamAddOn = {
-  price: "+$1.50",
-  options: ["Ube", "Mango", "Vanilla", "Haupia (coconut)"],
-};
-
 export const flavors = [
   "Strawberry",
   "Pineapple",
@@ -131,32 +126,6 @@ export const buildSteps = [
 export const specialtyNotes = [
   "All specialties come with ice cream and toppings.",
   "Regular sizes only.",
-];
-
-export const iceCreamMenu = {
-  title: "Ice Cream",
-  price: "$3.00 per scoop",
-  serving: "Cup",
-  flavors: ["Ube", "Mango", "Vanilla", "Haupia (coconut)"],
-};
-
-export const galleryItems = [
-  {
-    title: "Fine shave ice texture",
-    alt: "Close view of finely shaved ice with syrup layers.",
-  },
-  {
-    title: "Family-run counter",
-    alt: "Pau Hana team serving shave ice from a welcoming neighborhood counter.",
-  },
-  {
-    title: "Tropical flavor layers",
-    alt: "Layered Hawaiian shave ice with tropical syrup and toppings.",
-  },
-  {
-    title: "Japantown gathering spot",
-    alt: "Community table with shave ice bowls ready to share.",
-  },
 ];
 
 export const faqs = [

@@ -204,6 +204,16 @@ select:focus-visible {
   background-repeat: repeat;
 }
 
+@keyframes wheelSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.wheel-orbit {
+  animation: wheelSpin 32s linear infinite;
+  transform-origin: center center;
+}
+
 .photo-placeholder {
   background:
     linear-gradient(135deg, rgba(0, 0, 0, 0.16), rgba(2, 71, 49, 0.72)),
