@@ -11,9 +11,9 @@ const TILES = [
   { bg: "linear-gradient(155deg, #fef9c3 0%, #facc15 60%, #ca8a04 100%)" },
 ];
 
-const RADIUS = 380;
-const TILE_W = 108;
-const TILE_H = 154;
+const RADIUS = 780;
+const TILE_W = 324;
+const TILE_H = 462;
 
 export function ImageWheel({ className = "" }) {
   const tileCount = TILES.length;
@@ -54,10 +54,10 @@ export function ImageWheel({ className = "" }) {
                 style={{
                   width: "100%",
                   height: "100%",
-                  borderRadius: 24,
+                  borderRadius: 40,
                   background: tile.bg,
                   boxShadow:
-                    "0 12px 40px rgba(0,0,0,0.16), 0 4px 12px rgba(0,0,0,0.09), inset 0 1px 0 rgba(255,255,255,0.52)",
+                    "0 24px 72px rgba(0,0,0,0.18), 0 8px 24px rgba(0,0,0,0.10), inset 0 2px 0 rgba(255,255,255,0.52)",
                   transform: `rotate(${tilt}deg)`,
                   overflow: "hidden",
                   position: "relative",
@@ -69,7 +69,7 @@ export function ImageWheel({ className = "" }) {
                     inset: 0,
                     background:
                       "linear-gradient(155deg, rgba(255,255,255,0.38) 0%, rgba(255,255,255,0.08) 42%, transparent 66%)",
-                    borderRadius: 24,
+                    borderRadius: 40,
                     pointerEvents: "none",
                   }}
                 />

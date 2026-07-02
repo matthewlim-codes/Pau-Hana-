@@ -30,7 +30,7 @@ const storyCards = [
   },
 ];
 
-const WHEEL_RADIUS = 380;
+const WHEEL_RADIUS = 780;
 
 function Hero() {
   const wheelBottom = -Math.round((4 * WHEEL_RADIUS) / 3);
