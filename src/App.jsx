@@ -1,7 +1,6 @@
 import { useState } from "react";
+import heroBg from "@assets/Inpaint_and_replace_the_cookies_in_the_scene._Remove_all_exist_1782971633236.png";
 import { ButtonLink } from "./components/ButtonLink.jsx";
-import { HeroLogo } from "./components/HeroLogo.jsx";
-import { ImageWheel } from "./components/ImageWheel.jsx";
 import { MenuCard } from "./components/MenuCard.jsx";
 import { PhotoCard } from "./components/PhotoCard.jsx";
 import { SectionHeading } from "./components/SectionHeading.jsx";
@@ -34,8 +33,6 @@ const storyCards = [
   },
 ];
 
-const WHEEL_RADIUS = 936;
-
 const menuTabs = [
   { id: "build", label: "Build Your Own" },
   { id: "specialties", label: "Signature Specialties" },
@@ -43,52 +40,24 @@ const menuTabs = [
 ];
 
 function Hero() {
-  const wheelBottom = `calc(50% - ${WHEEL_RADIUS * 2}px)`;
-
   return (
     <section
       id="home"
-      className="relative flex items-center overflow-hidden py-16 sm:py-20 lg:py-28"
-      style={{ minHeight: 760 }}
+      className="relative w-full overflow-hidden"
     >
-      {/* Gradient fade so the wheel emerges subtly from below */}
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          inset: 0,
-          background:
-            "linear-gradient(to bottom, rgba(251,250,246,0.6) 28%, rgba(251,250,246,0.49) 52%, rgba(251,250,246,0.23) 72%, transparent 88%)",
-          zIndex: 1,
-          pointerEvents: "none",
-        }}
+      <img
+        src={heroBg}
+        alt="Pau Hana Shave Ice"
+        className="block w-full object-cover"
       />
-
-      {/* Spinning image wheel — background decoration */}
       <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          bottom: wheelBottom,
-          left: "50%",
-          transform: "translateX(-50%)",
-          pointerEvents: "none",
-          zIndex: 0,
-        }}
+        className="absolute left-0 right-0 flex justify-center gap-3"
+        style={{ top: "68%", flexWrap: "wrap" }}
       >
-        <ImageWheel />
-      </div>
-
-      <div className="shell relative" style={{ zIndex: 2 }}>
-        <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-          <HeroLogo />
-          <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
-            <ButtonLink href="#menu">View Shave Ice Menu</ButtonLink>
-            <ButtonLink href="#location" variant="secondary">
-              Visit Us
-            </ButtonLink>
-          </div>
-        </div>
+        <ButtonLink href="#menu">View Shave Ice Menu</ButtonLink>
+        <ButtonLink href="#location" variant="secondary">
+          Visit Us
+        </ButtonLink>
       </div>
     </section>
   );
