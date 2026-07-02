@@ -71,6 +71,45 @@ select:focus-visible {
   text-transform: uppercase;
 }
 
+.hero-logo {
+  width: min(860px, 94vw);
+  transform: rotate(-1deg);
+}
+
+.hero-logo svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.hero-logo-text {
+  font-family: "Brush Script MT", "Segoe Script", "Apple Chancery", cursive;
+  font-size: 132px;
+  font-weight: 700;
+  letter-spacing: -0.08em;
+  paint-order: stroke fill;
+}
+
+.hero-logo-wood {
+  fill: url("#woodFill");
+  stroke: #d4b27f;
+  stroke-linejoin: round;
+  stroke-width: 34px;
+}
+
+.hero-logo-grain {
+  fill: url("#woodLines");
+  stroke: transparent;
+}
+
+.hero-logo-green {
+  fill: #2f6f56;
+  stroke: #efd6ad;
+  stroke-linejoin: round;
+  stroke-width: 5px;
+}
+
 @keyframes imageWheelSpin {
   from {
     transform: translateX(-50%) rotate(0deg);

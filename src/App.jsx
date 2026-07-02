@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ButtonLink } from "./components/ButtonLink.jsx";
+import { HeroLogo } from "./components/HeroLogo.jsx";
 import { ImageWheel } from "./components/ImageWheel.jsx";
 import { MenuCard } from "./components/MenuCard.jsx";
 import { PhotoCard } from "./components/PhotoCard.jsx";
@@ -73,21 +74,10 @@ function Hero() {
         <ImageWheel />
       </div>
 
-      {/* Text content */}
       <div className="shell relative" style={{ zIndex: 2 }}>
-        <div className="max-w-xl lg:max-w-2xl">
-          <p className="eyebrow mb-4 text-xs font-black text-[#024731]">
-            Family-run in San Jose's Japantown
-          </p>
-          <h1 className="text-5xl font-black leading-[0.92] tracking-[-0.07em] text-black sm:text-6xl lg:text-7xl">
-            Pau Hana
-          </h1>
-          <p className="mt-6 max-w-lg text-lg leading-8 text-black/70 sm:text-xl">
-            A relaxed after-work stop for fine shave ice, island-inspired
-            flavor, and the kind of neighborhood welcome that makes the day
-            feel lighter.
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+        <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
+          <HeroLogo />
+          <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
             <ButtonLink href="#menu">View Shave Ice Menu</ButtonLink>
             <ButtonLink href="#location" variant="secondary">
               Visit Us
