@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 220" role="img" aria-labelledby="title">
+  <title id="title">Pau Hana</title>
+  <defs>
+    <linearGradient id="woodFill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f3dfbc" />
+      <stop offset="42%" stop-color="#cda86f" />
+      <stop offset="100%" stop-color="#f8e8c7" />
+    </linearGradient>
+    <pattern id="woodLines" width="24" height="220" patternUnits="userSpaceOnUse">
+      <path d="M4 0 C16 42 5 82 15 128 C22 160 16 190 8 220" fill="none" stroke="#8b6641" stroke-opacity="0.22" stroke-width="3" />
+      <path d="M20 0 C10 54 22 92 12 136 C5 168 8 198 18 220" fill="none" stroke="#fff5df" stroke-opacity="0.28" stroke-width="2" />
+      <path d="M12 0 C18 36 12 74 18 116 C22 146 18 184 14 220" fill="none" stroke="#6c4d31" stroke-opacity="0.14" stroke-width="1.5" />
+    </pattern>
+    <filter id="logoShadow" x="-10%" y="-24%" width="120%" height="155%">
+      <feDropShadow dx="0" dy="12" stdDeviation="4" flood-color="#024731" flood-opacity="0.3" />
+      <feDropShadow dx="0" dy="3" stdDeviation="2" flood-color="#000000" flood-opacity="0.24" />
+    </filter>
+    <style>
+      .script {
+        font-family: "Brush Script MT", "Segoe Script", "Apple Chancery", cursive;
+        font-size: 132px;
+        font-weight: 700;
+        letter-spacing: -0.08em;
+        paint-order: stroke fill;
+      }
+    </style>
+  </defs>
+  <g filter="url(#logoShadow)">
+    <text x="490" y="150" text-anchor="middle" class="script" fill="url(#woodFill)" stroke="#d7b57f" stroke-linejoin="round" stroke-width="34">Pau Hana</text>
+    <text x="490" y="150" text-anchor="middle" class="script" fill="url(#woodLines)">Pau Hana</text>
+    <text x="490" y="150" text-anchor="middle" class="script" fill="#2f6f56" stroke="#efd6ad" stroke-linejoin="round" stroke-width="5">Pau Hana</text>
+  </g>
+</svg>
