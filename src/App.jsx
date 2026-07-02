@@ -68,11 +68,11 @@ function Hero() {
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
         />
         <div
-          className="absolute flex flex-col gap-3"
-          style={{ bottom: "5%", left: "5%" }}
+          className="absolute flex flex-row gap-2"
+          style={{ bottom: "2%", left: "5%" }}
         >
-          <ButtonLink href="#menu">View Shave Ice Menu</ButtonLink>
-          <ButtonLink href="#location" variant="secondary">Visit Us</ButtonLink>
+          <ButtonLink href="#menu" className="!px-3 !py-1.5 !text-xs">View Menu</ButtonLink>
+          <ButtonLink href="#location" variant="secondary" className="!px-3 !py-1.5 !text-xs">Visit Us</ButtonLink>
         </div>
       </div>
 
