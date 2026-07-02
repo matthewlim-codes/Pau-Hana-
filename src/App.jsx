@@ -9,6 +9,8 @@ import {
   buildSteps,
   faqs,
   flavors,
+  iceCreamAddOn,
+  iceCreamMenu,
   sizes,
   specialtyNotes,
   specialties,
