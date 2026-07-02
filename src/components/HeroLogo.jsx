@@ -6,7 +6,7 @@ export function HeroLogo() {
       <img
         src={pauHanaLogo}
         alt="Pau Hana"
-        style={{ maxWidth: 480, width: "100%", height: "auto" }}
+        style={{ maxWidth: 720, width: "100%", height: "auto" }}
       />
     </div>
   );

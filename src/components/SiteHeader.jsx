@@ -18,13 +18,13 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-[#024731]/10 bg-[#fbfaf6]/95 backdrop-blur">
       <nav className="shell flex min-h-20 items-center justify-between gap-4" aria-label="Primary">
-        <a href="#home" className="flex flex-col items-start" onClick={closeMenu}>
+        <a href="#home" className="flex items-center gap-3" onClick={closeMenu}>
           <img
             src={pauHanaLogo}
             alt="Pau Hana"
-            style={{ height: 36, width: "auto" }}
+            style={{ height: 72, width: "auto" }}
           />
-          <span className="text-[10px] font-bold tracking-[0.18em] text-black uppercase -mt-0.5">
+          <span className="text-xs font-bold tracking-[0.18em] text-black uppercase">
             Shave Ice
           </span>
         </a>
