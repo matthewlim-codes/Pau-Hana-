@@ -33,8 +33,6 @@ const storyCards = [
   },
 ];
 
-const WHEEL_RADIUS = 780;
-
 const menuTabs = [
   { id: "build", label: "Build Your Own" },
   { id: "specialties", label: "Signature Specialties" },
@@ -42,13 +40,11 @@ const menuTabs = [
 ];
 
 function Hero() {
-  const wheelBottom = -Math.round((4 * WHEEL_RADIUS) / 3);
-
   return (
     <section
       id="home"
       className="relative overflow-hidden py-16 sm:py-20 lg:py-28"
-      style={{ minHeight: 520 }}
+      style={{ minHeight: 620 }}
     >
       {/* Gradient fade so the wheel emerges subtly from below */}
       <div
@@ -63,15 +59,14 @@ function Hero() {
         }}
       />
 
-      {/* Spinning image wheel — background decoration */}
+      {/* Scrollable lower-arc image wheel */}
       <div
-        aria-hidden="true"
         style={{
           position: "absolute",
-          bottom: wheelBottom,
-          left: "50%",
-          transform: "translateX(-50%)",
-          pointerEvents: "none",
+          right: 0,
+          bottom: -58,
+          left: 0,
+          pointerEvents: "auto",
           zIndex: 0,
         }}
       >
