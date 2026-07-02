@@ -43,7 +43,7 @@ const menuTabs = [
 ];
 
 function Hero() {
-  const wheelBottom = -Math.round((4 * WHEEL_RADIUS) / 3);
+  const wheelBottom = `calc(50% - ${WHEEL_RADIUS * 2}px)`;
 
   return (
     <section
