@@ -189,13 +189,14 @@ function ShaveIceMenu() {
     <section id="menu" className="bg-black py-16 text-[#fbfaf6] sm:py-20">
       <div className="shell">
         <SectionHeading
-          eyebrow="Shave ice menu"
-          title="Shave ice, specialties, and ice cream."
+          eyebrow="MENU"
+          title="Shave Ice - Specialties - Ice Cream"
           align="center"
           light
+          titleClassName="font-black tracking-[-0.04em] sm:text-4xl lg:text-5xl text-[#fbfaf6] text-[48px]"
         >
-          Choose a size, add ice cream, pick up to two flavors, and finish with
-          toppings, or order one of Pau Hana's regular-size specialties.
+          Choose a size, pick up to two flavors, and finish with toppings, or
+          order one of Pau Hana's regular-size specialties.
         </SectionHeading>
 
         <div className="mt-12 grid gap-5 lg:grid-cols-2">
