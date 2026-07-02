@@ -1,5 +1,6 @@
 import { useState } from "react";
-import heroBg from "./assets/mobile-hero-bg.png";
+import heroDesktop from "./assets/desktop-hero.png";
+import heroMobile from "./assets/mobile-hero.png";
 import { ButtonLink } from "./components/ButtonLink.jsx";
 import { MenuCard } from "./components/MenuCard.jsx";
 import { PhotoCard } from "./components/PhotoCard.jsx";
@@ -41,32 +42,40 @@ const menuTabs = [
 
 function Hero() {
   return (
-    <section
-      id="home"
-      className="relative mx-auto w-full max-w-[1080px] overflow-hidden bg-black"
-      style={{ aspectRatio: "4 / 5" }}
-    >
-      <img
-        src={heroBg}
-        alt="Pau Hana Shave Ice"
-        style={{
-          position: "absolute",
-          inset: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "contain",
-          objectPosition: "center center",
-        }}
-      />
-      <div
-        className="absolute left-1/2 flex -translate-x-1/2 justify-center gap-3 px-4"
-        style={{ top: "82.5%", flexWrap: "wrap", width: "100%" }}
-      >
-        <ButtonLink href="#menu">View Menu</ButtonLink>
-        <ButtonLink href="#location" variant="secondary">
-          Visit Us
-        </ButtonLink>
+    <section id="home" className="relative w-full overflow-hidden">
+
+      {/* ── Desktop (md+): wide 2.39:1 cinematic image, buttons centered ── */}
+      <div className="hidden md:block" style={{ aspectRatio: "2.39", position: "relative" }}>
+        <img
+          src={heroDesktop}
+          alt="Pau Hana Shave Ice"
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
+        />
+        <div
+          className="absolute left-0 right-0 flex justify-center gap-3"
+          style={{ top: "72%", flexWrap: "wrap" }}
+        >
+          <ButtonLink href="#menu">View Shave Ice Menu</ButtonLink>
+          <ButtonLink href="#location" variant="secondary">Visit Us</ButtonLink>
+        </div>
       </div>
+
+      {/* ── Mobile (<md): portrait image, buttons at bottom-left ── */}
+      <div className="block md:hidden" style={{ aspectRatio: "4 / 5", position: "relative" }}>
+        <img
+          src={heroMobile}
+          alt="Pau Hana Shave Ice"
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
+        />
+        <div
+          className="absolute flex flex-col gap-3"
+          style={{ bottom: "5%", left: "5%" }}
+        >
+          <ButtonLink href="#menu">View Shave Ice Menu</ButtonLink>
+          <ButtonLink href="#location" variant="secondary">Visit Us</ButtonLink>
+        </div>
+      </div>
+
     </section>
   );
 }
