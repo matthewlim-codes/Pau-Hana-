@@ -44,15 +44,23 @@ function Hero() {
     <section
       id="home"
       className="relative w-full overflow-hidden"
+      style={{ aspectRatio: "2.39" }}
     >
       <img
         src={heroBg}
         alt="Pau Hana Shave Ice"
-        className="block w-full object-cover"
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          objectPosition: "center center",
+        }}
       />
       <div
         className="absolute left-0 right-0 flex justify-center gap-3"
-        style={{ top: "68%", flexWrap: "wrap" }}
+        style={{ top: "72%", flexWrap: "wrap" }}
       >
         <ButtonLink href="#menu">View Shave Ice Menu</ButtonLink>
         <ButtonLink href="#location" variant="secondary">
@@ -94,14 +102,12 @@ function About() {
           alt="Family-run shave ice counter inspired by Hawaiian culture and local community."
           label="About"
         />
-        <div className="about-pattern-panel">
-          <div className="relative z-10">
-            <SectionHeading eyebrow="About Pau Hana" title="Made for the moment after work.">
-              Pau Hana means the work is finished, but it also means the good part
-              of the day can begin.
-            </SectionHeading>
-          </div>
-          <div className="relative z-10 mt-8 space-y-5 text-lg leading-8 text-black/70">
+        <div>
+          <SectionHeading eyebrow="About Pau Hana" title="Made for the moment after work.">
+            Pau Hana means the work is finished, but it also means the good part
+            of the day can begin.
+          </SectionHeading>
+          <div className="mt-8 space-y-5 text-lg leading-8 text-black/70">
             <p>
               Pau Hana Shave Ice brings a focused Hawaiian shave ice experience
               to San Jose's Japantown with a calm, welcoming spirit. The brand is
