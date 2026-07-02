@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ButtonLink } from "./components/ButtonLink.jsx";
+import { HeroImageWall } from "./components/HeroImageWall.jsx";
 import { HeroLogo } from "./components/HeroLogo.jsx";
-import { ImageWheel } from "./components/ImageWheel.jsx";
 import { MenuCard } from "./components/MenuCard.jsx";
 import { PhotoCard } from "./components/PhotoCard.jsx";
 import { SectionHeading } from "./components/SectionHeading.jsx";
@@ -60,18 +60,19 @@ function Hero() {
         }}
       />
 
-      {/* Self-spinning lower-arc image wheel */}
+      {/* Infinite 3D image wall background */}
       <div
         style={{
           position: "absolute",
           right: 0,
-          bottom: -72,
+          top: 0,
+          bottom: 0,
           left: 0,
           pointerEvents: "none",
           zIndex: 0,
         }}
       >
-        <ImageWheel />
+        <HeroImageWall />
       </div>
 
       <div className="shell relative" style={{ zIndex: 2 }}>
