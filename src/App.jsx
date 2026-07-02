@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ButtonLink } from "./components/ButtonLink.jsx";
+import { HeroLogo } from "./components/HeroLogo.jsx";
 import { ImageWheel } from "./components/ImageWheel.jsx";
 import { MenuCard } from "./components/MenuCard.jsx";
 import { PhotoCard } from "./components/PhotoCard.jsx";
@@ -33,7 +34,7 @@ const storyCards = [
   },
 ];
 
-const WHEEL_RADIUS = 780;
+const WHEEL_RADIUS = 1560;
 
 const menuTabs = [
   { id: "build", label: "Build Your Own" },
@@ -47,8 +48,8 @@ function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden py-16 sm:py-20 lg:py-28"
-      style={{ minHeight: 520 }}
+      className="relative flex items-center overflow-hidden py-16 sm:py-20 lg:py-28"
+      style={{ minHeight: 760 }}
     >
       {/* Gradient fade so the wheel emerges subtly from below */}
       <div
@@ -57,7 +58,7 @@ function Hero() {
           position: "absolute",
           inset: 0,
           background:
-            "linear-gradient(to bottom, var(--warm-white) 28%, rgba(251,250,246,0.82) 52%, rgba(251,250,246,0.38) 72%, transparent 88%)",
+            "linear-gradient(to bottom, rgba(251,250,246,0.6) 28%, rgba(251,250,246,0.49) 52%, rgba(251,250,246,0.23) 72%, transparent 88%)",
           zIndex: 1,
           pointerEvents: "none",
         }}
@@ -78,21 +79,10 @@ function Hero() {
         <ImageWheel />
       </div>
 
-      {/* Text content */}
       <div className="shell relative" style={{ zIndex: 2 }}>
-        <div className="max-w-xl lg:max-w-2xl">
-          <p className="eyebrow mb-4 text-xs font-black text-[#024731]">
-            Family-run in San Jose's Japantown
-          </p>
-          <h1 className="text-5xl font-black leading-[0.92] tracking-[-0.07em] text-black sm:text-6xl lg:text-7xl">
-            Pau Hana
-          </h1>
-          <p className="mt-6 max-w-lg text-lg leading-8 text-black/70 sm:text-xl">
-            A relaxed after-work stop for fine shave ice, island-inspired
-            flavor, and the kind of neighborhood welcome that makes the day
-            feel lighter.
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+        <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
+          <HeroLogo />
+          <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
             <ButtonLink href="#menu">View Shave Ice Menu</ButtonLink>
             <ButtonLink href="#location" variant="secondary">
               Visit Us
