@@ -1,5 +1,5 @@
 import { useState } from "react";
-import heroBg from "@assets/Inpaint_and_replace_the_cookies_in_the_scene._Remove_all_exist_1782971633236.png";
+import heroBg from "./assets/mobile-hero-bg.png";
 import { ButtonLink } from "./components/ButtonLink.jsx";
 import { MenuCard } from "./components/MenuCard.jsx";
 import { PhotoCard } from "./components/PhotoCard.jsx";
@@ -43,8 +43,8 @@ function Hero() {
   return (
     <section
       id="home"
-      className="relative w-full overflow-hidden"
-      style={{ aspectRatio: "2.39" }}
+      className="relative mx-auto w-full max-w-[1080px] overflow-hidden bg-black"
+      style={{ aspectRatio: "4 / 5" }}
     >
       <img
         src={heroBg}
@@ -54,15 +54,15 @@ function Hero() {
           inset: 0,
           width: "100%",
           height: "100%",
-          objectFit: "cover",
+          objectFit: "contain",
           objectPosition: "center center",
         }}
       />
       <div
-        className="absolute left-0 right-0 flex justify-center gap-3"
-        style={{ top: "72%", flexWrap: "wrap" }}
+        className="absolute left-1/2 flex -translate-x-1/2 justify-center gap-3 px-4"
+        style={{ top: "82.5%", flexWrap: "wrap", width: "100%" }}
       >
-        <ButtonLink href="#menu">View Shave Ice Menu</ButtonLink>
+        <ButtonLink href="#menu">View Menu</ButtonLink>
         <ButtonLink href="#location" variant="secondary">
           Visit Us
         </ButtonLink>
