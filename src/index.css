@@ -95,11 +95,11 @@ select:focus-visible {
 }
 
 .wheel-orbit {
-  animation: wheelSpin 28s linear infinite;
+  animation: wheelSpin 56s linear infinite;
 }
 
 .wheel-tile-counter {
-  animation: wheelCounterSpin 28s linear infinite;
+  animation: wheelCounterSpin 56s linear infinite;
 }
 
 .heritage-pattern {

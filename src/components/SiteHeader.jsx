@@ -1,4 +1,5 @@
 import { useState } from "react";
+import pauHanaLogo from "@assets/pau_hana_logo_nobg.png";
 
 const navItems = [
   { href: "#home", label: "Home" },
@@ -17,20 +18,14 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-[#024731]/10 bg-[#fbfaf6]/95 backdrop-blur">
       <nav className="shell flex min-h-20 items-center justify-between gap-4" aria-label="Primary">
-        <a href="#home" className="flex items-center gap-3" onClick={closeMenu}>
-          <span
-            className="flex h-11 w-11 items-center justify-center rounded-full bg-[#024731] text-sm font-black text-[#fbfaf6]"
-            aria-hidden="true"
-          >
-            PH
-          </span>
-          <span className="leading-tight">
-            <span className="block text-base font-black tracking-[-0.04em] text-black">
-              Pau Hana
-            </span>
-            <span className="block text-xs font-bold uppercase tracking-[0.18em] text-[#024731]">
-              Shave Ice
-            </span>
+        <a href="#home" className="flex flex-col items-start" onClick={closeMenu}>
+          <img
+            src={pauHanaLogo}
+            alt="Pau Hana"
+            style={{ height: 36, width: "auto" }}
+          />
+          <span className="text-[10px] font-bold tracking-[0.18em] text-black uppercase -mt-0.5">
+            Shave Ice
           </span>
         </a>
 

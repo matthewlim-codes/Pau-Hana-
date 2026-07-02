@@ -9,8 +9,8 @@ import img7 from "@assets/cc78e2d7-a347-4ef4-a9a7-faf74a5d3aea_1782954800934.png
 const TILES = [img1, img2, img3, img4, img5, img6, img7];
 const ORBIT_TILES = [...TILES, ...TILES];
 
-const RADIUS = 1560;
-const TILE_SIZE = 680;
+const RADIUS = 936;
+const TILE_SIZE = 408;
 
 export function ImageWheel({ className = "" }) {
   const tileCount = ORBIT_TILES.length;

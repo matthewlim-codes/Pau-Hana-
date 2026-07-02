@@ -34,7 +34,7 @@ const storyCards = [
   },
 ];
 
-const WHEEL_RADIUS = 1560;
+const WHEEL_RADIUS = 936;
 
 const menuTabs = [
   { id: "build", label: "Build Your Own" },
