@@ -1,5 +1,6 @@
 import { useState } from "react";
 import pauHanaLogo from "@assets/pau_hana_logo_nobg.png";
+import hamburgerIcon from "../assets/hamburger-icon.png";
 
 const navItems = [
   { href: "#home", label: "Home" },
@@ -31,12 +32,13 @@ export function SiteHeader() {
 
         <button
           type="button"
-          className="rounded-full border border-[#024731]/20 px-4 py-2 text-sm font-black text-[#024731] md:hidden"
+          className="flex h-10 w-10 items-center justify-center md:hidden"
           aria-controls="primary-navigation"
           aria-expanded={isOpen}
+          aria-label="Open menu"
           onClick={() => setIsOpen((current) => !current)}
         >
-          Menu
+          <img src={hamburgerIcon} alt="" className="h-6 w-6 object-contain" />
         </button>
 
         <div
