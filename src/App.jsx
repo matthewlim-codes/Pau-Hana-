@@ -94,12 +94,14 @@ function About() {
           alt="Family-run shave ice counter inspired by Hawaiian culture and local community."
           label="About"
         />
-        <div>
-          <SectionHeading eyebrow="About Pau Hana" title="Made for the moment after work.">
-            Pau Hana means the work is finished, but it also means the good part
-            of the day can begin.
-          </SectionHeading>
-          <div className="mt-8 space-y-5 text-lg leading-8 text-black/70">
+        <div className="about-pattern-panel">
+          <div className="relative z-10">
+            <SectionHeading eyebrow="About Pau Hana" title="Made for the moment after work.">
+              Pau Hana means the work is finished, but it also means the good part
+              of the day can begin.
+            </SectionHeading>
+          </div>
+          <div className="relative z-10 mt-8 space-y-5 text-lg leading-8 text-black/70">
             <p>
               Pau Hana Shave Ice brings a focused Hawaiian shave ice experience
               to San Jose's Japantown with a calm, welcoming spirit. The brand is
