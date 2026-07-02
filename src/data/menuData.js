@@ -127,7 +127,7 @@ export const galleryItems = [
 
 export const faqs = [
   {
-    question: "Do you serve anything besides shave ice?",
+    question: "Is the website focused only on shave ice?",
     answer:
       "This website is focused completely on Pau Hana shave ice, including flavors, toppings, sizes, and specialty combinations.",
   },
