@@ -10,7 +10,6 @@ import {
   buildSteps,
   faqs,
   flavors,
-  galleryItems,
   iceCreamAddOn,
   iceCreamMenu,
   sizes,
@@ -213,14 +212,14 @@ function ShaveIceMenu() {
       <div className="shell">
         <div className="mx-auto max-w-3xl text-center">
           <p className="eyebrow mb-2 text-[0.65rem] font-black text-[#fbfaf6]/60">
-            Shave ice menu
+            Menu
           </p>
           <h2 className="text-2xl font-black leading-tight tracking-[-0.04em] sm:text-3xl">
-            Build fast, scan easy, order with confidence.
+            Shave Ice - Specialties - Ice Cream
           </h2>
           <p className="mt-3 text-sm leading-6 text-[#fbfaf6]/72">
-            Compact menu sections keep sizes, flavors, toppings, specialties,
-            and ice cream cups quick to browse.
+            Choose a size, pick up to two flavors, and finish with toppings, or
+            order one of Pau Hana's regular-size specialties.
           </p>
         </div>
 
@@ -493,27 +492,6 @@ function ShaveIceMenu() {
   );
 }
 
-function Gallery() {
-  return (
-    <section id="gallery" className="py-16 sm:py-20">
-      <div className="shell">
-        <SectionHeading
-          eyebrow="Gallery"
-          title="A visual direction built for premium shave ice."
-          align="center"
-        >
-          Strong photography placeholders give the launch site structure while
-          keeping the final image set easy to swap in.
-        </SectionHeading>
-        <div className="mt-10 grid gap-5 md:grid-cols-2">
-          {galleryItems.map((item) => (
-            <PhotoCard key={item.title} title={item.title} alt={item.alt} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function LocationHours() {
   return (
@@ -542,21 +520,23 @@ function LocationHours() {
             Contact Us
           </ButtonLink>
         </div>
-        <div
-          className="heritage-pattern flex min-h-[22rem] items-center justify-center rounded-[2rem] border border-[#fbfaf6]/20 p-8"
-          role="img"
-          aria-label="Map placeholder for Pau Hana Shave Ice in San Jose Japantown."
+        <a
+          href="https://www.google.com/maps/place/Pau+Hana+Shave+Ice/data=!4m2!3m1!1s0x0:0x3c43d47cedd86980?sa=X&ved=1t:2428&ictx=111"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block overflow-hidden rounded-[2rem] min-h-[22rem]"
+          aria-label="Open Pau Hana Shave Ice on Google Maps"
         >
-          <div className="max-w-sm rounded-[2rem] bg-black p-6 text-center shadow-2xl">
-            <p className="eyebrow text-xs font-black text-[#fbfaf6]/58">Map preview</p>
-            <p className="mt-3 text-2xl font-black tracking-[-0.04em]">
-              San Jose Japantown
-            </p>
-            <p className="mt-3 leading-7 text-[#fbfaf6]/74">
-              Replace this panel with an embedded map when the final address is confirmed.
-            </p>
-          </div>
-        </div>
+          <iframe
+            title="Pau Hana Shave Ice on Google Maps"
+            src="https://maps.google.com/maps?q=248+Jackson+St,+San+Jose,+CA+95112&output=embed&z=16"
+            width="100%"
+            height="100%"
+            style={{ minHeight: "22rem", border: 0, display: "block", pointerEvents: "none" }}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </a>
       </div>
     </section>
   );
@@ -654,7 +634,6 @@ function App() {
         <BrandStoryPreview />
         <About />
         <ShaveIceMenu />
-        <Gallery />
         <LocationHours />
         <Contact />
         <FAQ />

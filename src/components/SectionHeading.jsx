@@ -4,6 +4,7 @@ export function SectionHeading({
   children,
   align = "left",
   light = false,
+  titleClassName,
 }) {
   const centered = align === "center";
 
@@ -17,7 +18,7 @@ export function SectionHeading({
         {eyebrow}
       </p>
       <h2
-        className={`text-3xl font-black leading-tight tracking-[-0.04em] sm:text-4xl lg:text-5xl ${
+        className={titleClassName ?? `text-3xl font-black leading-tight tracking-[-0.04em] sm:text-4xl lg:text-5xl ${
           light ? "text-[#fbfaf6]" : "text-black"
         }`}
       >
