@@ -127,9 +127,9 @@ export const galleryItems = [
 
 export const faqs = [
   {
-    question: "Is the website focused only on shave ice?",
+    question: "Do they have dairy-free options?",
     answer:
-      "This website is focused completely on Pau Hana shave ice, including flavors, toppings, sizes, and specialty combinations.",
+      "Yes, you can ask what syrups are dairy-free. Many may be dairy-free, and having those with shave ice would be dairy-free. Some toppings are dairy-free as well.",
   },
   {
     question: "Can I build my own combination?",
@@ -142,8 +142,7 @@ export const faqs = [
       "Prices shown here are placeholders so the menu structure can be updated quickly when final flavor data is ready.",
   },
   {
-    question: "Where is Pau Hana located?",
-    answer:
-      "Pau Hana is located in San Jose's Japantown, serving the neighborhood with a relaxed island-inspired welcome.",
+    question: "Cash only or do they accept card?",
+    answer: "Accept both.",
   },
 ];

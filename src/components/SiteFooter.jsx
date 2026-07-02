@@ -1,7 +1,6 @@
 const socialLinks = [
-  { href: "https://www.instagram.com/", label: "Instagram" },
-  { href: "https://www.facebook.com/", label: "Facebook" },
-  { href: "https://www.yelp.com/", label: "Yelp" },
+  { href: "https://www.instagram.com/pauhanashaveiceco/?hl=en", label: "Instagram" },
+  { href: "https://www.yelp.com/biz/pau-hana-shave-ice-san-jose-2", label: "Yelp" },
 ];
 
 export function SiteFooter() {
@@ -16,15 +15,15 @@ export function SiteFooter() {
         </div>
         <address className="not-italic leading-7 text-[#fbfaf6]/78">
           <strong className="block text-[#fbfaf6]">Visit us</strong>
-          123 Japantown Way
+          248 Jackson St.
           <br />
           San Jose, CA 95112
         </address>
         <div className="leading-7 text-[#fbfaf6]/78">
           <strong className="block text-[#fbfaf6]">Hours</strong>
-          Mon-Thu 12-8
+          Mon-Fri 1-6PM
           <br />
-          Fri-Sun 11-9
+          Sat-Sun 1-6:30PM
           <div className="mt-5 flex flex-wrap gap-3">
             {socialLinks.map((link) => (
               <a
