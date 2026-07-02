@@ -10,7 +10,10 @@ import {
   faqs,
   flavors,
   galleryItems,
+  iceCreamAddOn,
+  iceCreamMenu,
   sizes,
+  specialtyNotes,
   specialties,
   toppings,
 } from "./data/menuData.js";
@@ -118,7 +121,7 @@ function FeaturedCombinations() {
               title={item.name}
               price={item.price}
               description={item.description}
-              meta={item.flavors.join(" / ")}
+              meta={item.allergen ?? "Specialty | regular size only"}
             />
           ))}
         </div>
@@ -188,15 +191,15 @@ function ShaveIceMenu() {
       <div className="shell">
         <SectionHeading
           eyebrow="Shave ice menu"
-          title="One focused menu. All shave ice."
+          title="Shave ice, specialties, and ice cream."
           align="center"
           light
         >
-          Placeholder pricing keeps the structure flexible while flavors,
-          toppings, and combinations stay easy to update.
+          Choose a size, add ice cream, pick up to two flavors, and finish with
+          toppings, or order one of Pau Hana's regular-size specialties.
         </SectionHeading>
 
-        <div className="mt-12 grid gap-5 lg:grid-cols-3">
+        <div className="mt-12 grid gap-5 lg:grid-cols-2">
           {sizes.map((size) => (
             <MenuCard
               key={size.name}
@@ -210,46 +213,64 @@ function ShaveIceMenu() {
 
         <div className="mt-12 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <article className="rounded-[2rem] bg-[#fbfaf6] p-6 text-black sm:p-8">
-            <p className="eyebrow text-xs font-black text-[#024731]">Flavors</p>
+            <p className="eyebrow text-xs font-black text-[#024731]">How to order</p>
             <h3 className="mt-3 text-3xl font-black tracking-[-0.04em]">
-              Pick up to three.
+              Build your shave ice.
+            </h3>
+            <ol className="mt-6 grid gap-4 sm:grid-cols-2">
+              {buildSteps.map((step, index) => (
+                <li key={step.title} className="rounded-3xl border border-[#024731]/12 p-5">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#024731] text-sm font-black text-[#fbfaf6]">
+                    {index + 1}
+                  </span>
+                  <h4 className="mt-4 font-black tracking-[-0.03em]">{step.title}</h4>
+                  <p className="mt-2 leading-7 text-black/68">{step.description}</p>
+                </li>
+              ))}
+            </ol>
+          </article>
+
+          <article className="rounded-[2rem] border border-[#fbfaf6]/15 p-6 sm:p-8">
+            <p className="eyebrow text-xs font-black text-[#fbfaf6]/65">Flavors</p>
+            <h3 className="mt-3 text-3xl font-black tracking-[-0.04em]">
+              Choose up to two.
             </h3>
             <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
               {flavors.map((flavor) => (
                 <span
                   key={flavor}
-                  className="rounded-full border border-[#024731]/18 px-4 py-3 text-center text-sm font-bold text-black"
+                  className="rounded-full border border-[#fbfaf6]/18 px-4 py-3 text-center text-sm font-bold text-[#fbfaf6]"
                 >
                   {flavor}
                 </span>
               ))}
             </div>
           </article>
-
-          <article className="rounded-[2rem] border border-[#fbfaf6]/15 p-6 sm:p-8">
-            <p className="eyebrow text-xs font-black text-[#fbfaf6]/65">
-              Build your own
-            </p>
-            <h3 className="mt-3 text-3xl font-black tracking-[-0.04em]">
-              A simple ordering flow.
-            </h3>
-            <ol className="mt-6 grid gap-4 sm:grid-cols-2">
-              {buildSteps.map((step, index) => (
-                <li key={step} className="rounded-3xl bg-[#fbfaf6]/10 p-5">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#fbfaf6] text-sm font-black text-[#024731]">
-                    {index + 1}
-                  </span>
-                  <p className="mt-4 leading-7 text-[#fbfaf6]/82">{step}</p>
-                </li>
-              ))}
-            </ol>
-          </article>
         </div>
 
-        <div className="mt-12 grid gap-8 lg:grid-cols-2">
+        <div className="mt-12 grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+          <MenuCard
+            title="Add ice cream"
+            price={iceCreamAddOn.price}
+            description="Add a scoop under your shave ice."
+            dark
+          >
+            <div className="flex flex-wrap gap-2">
+              {iceCreamAddOn.options.map((option) => (
+                <span
+                  key={option}
+                  className="rounded-full bg-[#fbfaf6]/12 px-3 py-2 text-sm font-bold text-[#fbfaf6]/82"
+                >
+                  {option}
+                </span>
+              ))}
+            </div>
+          </MenuCard>
+
           <div>
             <h3 className="text-2xl font-black tracking-[-0.04em]">Toppings</h3>
-            <div className="mt-5 grid gap-4 sm:grid-cols-2">
+            <p className="mt-2 text-[#fbfaf6]/70">Add toppings for $1.00 each.</p>
+            <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {toppings.map((topping) => (
                 <MenuCard
                   key={topping.name}
@@ -261,28 +282,57 @@ function ShaveIceMenu() {
               ))}
             </div>
           </div>
+        </div>
 
-          <div>
-            <h3 className="text-2xl font-black tracking-[-0.04em]">
-              Specialty combinations
-            </h3>
-            <div className="mt-5 grid gap-4">
+        <div className="mt-12 grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+          <section aria-labelledby="specialties-heading">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <h3 id="specialties-heading" className="text-3xl font-black tracking-[-0.04em]">
+                  Specialties
+                </h3>
+                <div className="mt-3 space-y-1 text-sm font-bold uppercase tracking-[0.08em] text-[#fbfaf6]/70">
+                  {specialtyNotes.map((note) => (
+                    <p key={note}>{note}</p>
+                  ))}
+                </div>
+              </div>
+              <span className="w-fit rounded-full bg-[#fbfaf6] px-4 py-2 text-sm font-black text-[#024731]">
+                $9.99
+              </span>
+            </div>
+            <div className="mt-6 grid gap-4">
               {specialties.map((item) => (
                 <MenuCard
                   key={item.name}
                   title={item.name}
                   price={item.price}
                   description={item.description}
-                  meta={item.flavors.join(" / ")}
+                  meta={item.allergen}
                   dark
-                >
-                  <p className="text-sm font-bold text-[#fbfaf6]/72">
-                    Suggested finish: {item.topping}
-                  </p>
-                </MenuCard>
+                />
               ))}
             </div>
-          </div>
+          </section>
+
+          <MenuCard
+            title={iceCreamMenu.title}
+            price={iceCreamMenu.price}
+            meta={iceCreamMenu.serving}
+            description="Simple scoop options served in a cup."
+            dark
+          >
+            <div className="flex flex-wrap gap-2">
+              {iceCreamMenu.flavors.map((flavor) => (
+                <span
+                  key={flavor}
+                  className="rounded-full bg-[#fbfaf6]/12 px-3 py-2 text-sm font-bold text-[#fbfaf6]/82"
+                >
+                  {flavor}
+                </span>
+              ))}
+            </div>
+          </MenuCard>
         </div>
       </div>
     </section>
