@@ -71,6 +71,24 @@ select:focus-visible {
   text-transform: uppercase;
 }
 
+@keyframes wheelSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes wheelCounterSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+.wheel-orbit {
+  animation: wheelSpin 28s linear infinite;
+}
+
+.wheel-tile-counter {
+  animation: wheelCounterSpin 28s linear infinite;
+}
+
 .heritage-pattern {
   background-image:
     linear-gradient(135deg, rgba(2, 71, 49, 0.12) 25%, transparent 25%),

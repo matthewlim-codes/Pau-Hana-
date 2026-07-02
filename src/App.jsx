@@ -1,4 +1,5 @@
 import { ButtonLink } from "./components/ButtonLink.jsx";
+import { ImageWheel } from "./components/ImageWheel.jsx";
 import { MenuCard } from "./components/MenuCard.jsx";
 import { PhotoCard } from "./components/PhotoCard.jsx";
 import { SectionHeading } from "./components/SectionHeading.jsx";
@@ -29,20 +30,58 @@ const storyCards = [
   },
 ];
 
+const WHEEL_RADIUS = 380;
+
 function Hero() {
+  const wheelBottom = -Math.round((4 * WHEEL_RADIUS) / 3);
+
   return (
-    <section id="home" className="relative overflow-hidden py-16 sm:py-20 lg:py-24">
-      <div className="shell grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
-        <div>
+    <section
+      id="home"
+      className="relative overflow-hidden py-16 sm:py-20 lg:py-28"
+      style={{ minHeight: 520 }}
+    >
+      {/* Gradient fade so the wheel emerges subtly from below */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "linear-gradient(to bottom, var(--warm-white) 28%, rgba(251,250,246,0.82) 52%, rgba(251,250,246,0.38) 72%, transparent 88%)",
+          zIndex: 1,
+          pointerEvents: "none",
+        }}
+      />
+
+      {/* Spinning image wheel — background decoration */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          bottom: wheelBottom,
+          left: "50%",
+          transform: "translateX(-50%)",
+          pointerEvents: "none",
+          zIndex: 0,
+        }}
+      >
+        <ImageWheel />
+      </div>
+
+      {/* Text content */}
+      <div className="shell relative" style={{ zIndex: 2 }}>
+        <div className="max-w-xl lg:max-w-2xl">
           <p className="eyebrow mb-4 text-xs font-black text-[#024731]">
             Family-run in San Jose's Japantown
           </p>
-          <h1 className="max-w-4xl text-5xl font-black leading-[0.92] tracking-[-0.07em] text-black sm:text-6xl lg:text-7xl">
+          <h1 className="text-5xl font-black leading-[0.92] tracking-[-0.07em] text-black sm:text-6xl lg:text-7xl">
             Hawaiian shave ice in San Jose, made for your Pau Hana moment.
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-black/70 sm:text-xl">
-            A relaxed after-work stop for fine shave ice, island-inspired flavor,
-            and the kind of neighborhood welcome that makes the day feel lighter.
+          <p className="mt-6 max-w-lg text-lg leading-8 text-black/70 sm:text-xl">
+            A relaxed after-work stop for fine shave ice, island-inspired
+            flavor, and the kind of neighborhood welcome that makes the day
+            feel lighter.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <ButtonLink href="#menu">View Shave Ice Menu</ButtonLink>
@@ -50,17 +89,6 @@ function Hero() {
               Visit Us
             </ButtonLink>
           </div>
-        </div>
-
-        <div className="relative">
-          <div className="absolute -right-8 -top-8 h-36 w-36 rounded-full bg-[#024731]/10" />
-          <div className="heritage-pattern absolute -bottom-8 -left-8 h-44 w-44 rounded-[2rem] border border-[#024731]/12" />
-          <PhotoCard
-            title="Signature tropical shave ice"
-            alt="Large bowl of Hawaiian shave ice with tropical syrup layers and creamy topping."
-            label="Hero image"
-            className="relative shadow-2xl shadow-[#024731]/20"
-          />
         </div>
       </div>
     </section>
