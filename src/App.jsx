@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ButtonLink } from "./components/ButtonLink.jsx";
 import { ImageWheel } from "./components/ImageWheel.jsx";
 import { MenuCard } from "./components/MenuCard.jsx";
@@ -34,6 +35,12 @@ const storyCards = [
 ];
 
 const WHEEL_RADIUS = 780;
+
+const menuTabs = [
+  { id: "build", label: "Build Your Own" },
+  { id: "specialties", label: "Signature Specialties" },
+  { id: "ice-cream", label: "Ice Cream Cups" },
+];
 
 function Hero() {
   const wheelBottom = -Math.round((4 * WHEEL_RADIUS) / 3);
@@ -186,153 +193,300 @@ function About() {
 }
 
 function ShaveIceMenu() {
+  const [activeTab, setActiveTab] = useState("build");
+  const [showAllFlavors, setShowAllFlavors] = useState(false);
+  const [selectedToppings, setSelectedToppings] = useState([]);
+
+  const visibleFlavors = showAllFlavors ? flavors : flavors.slice(0, 9);
+  const hiddenFlavorCount = flavors.length - visibleFlavors.length;
+
+  const toggleTopping = (name) => {
+    setSelectedToppings((current) =>
+      current.includes(name)
+        ? current.filter((topping) => topping !== name)
+        : [...current, name],
+    );
+  };
+
   return (
-    <section id="menu" className="bg-black py-16 text-[#fbfaf6] sm:py-20">
+    <section id="menu" className="bg-black py-8 text-[#fbfaf6]">
       <div className="shell">
-        <SectionHeading
-          eyebrow="Shave ice menu"
-          title="Shave ice, specialties, and ice cream."
-          align="center"
-          light
-        >
-          Choose a size, add ice cream, pick up to two flavors, and finish with
-          toppings, or order one of Pau Hana's regular-size specialties.
-        </SectionHeading>
-
-        <div className="mt-12 grid gap-5 lg:grid-cols-2">
-          {sizes.map((size) => (
-            <MenuCard
-              key={size.name}
-              title={size.name}
-              price={size.price}
-              description={size.description}
-              dark
-            />
-          ))}
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="eyebrow mb-2 text-[0.65rem] font-black text-[#fbfaf6]/60">
+            Shave ice menu
+          </p>
+          <h2 className="text-2xl font-black leading-tight tracking-[-0.04em] sm:text-3xl">
+            Build fast, scan easy, order with confidence.
+          </h2>
+          <p className="mt-3 text-sm leading-6 text-[#fbfaf6]/72">
+            Compact menu sections keep sizes, flavors, toppings, specialties,
+            and ice cream cups quick to browse.
+          </p>
         </div>
 
-        <div className="mt-12 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-          <article className="rounded-[2rem] bg-[#fbfaf6] p-6 text-black sm:p-8">
-            <p className="eyebrow text-xs font-black text-[#024731]">How to order</p>
-            <h3 className="mt-3 text-3xl font-black tracking-[-0.04em]">
-              Build your shave ice.
-            </h3>
-            <ol className="mt-6 grid gap-4 sm:grid-cols-2">
-              {buildSteps.map((step, index) => (
-                <li key={step.title} className="rounded-3xl border border-[#024731]/12 p-5">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#024731] text-sm font-black text-[#fbfaf6]">
-                    {index + 1}
-                  </span>
-                  <h4 className="mt-4 font-black tracking-[-0.03em]">{step.title}</h4>
-                  <p className="mt-2 leading-7 text-black/68">{step.description}</p>
-                </li>
-              ))}
-            </ol>
-          </article>
-
-          <article className="rounded-[2rem] border border-[#fbfaf6]/15 p-6 sm:p-8">
-            <p className="eyebrow text-xs font-black text-[#fbfaf6]/65">Flavors</p>
-            <h3 className="mt-3 text-3xl font-black tracking-[-0.04em]">
-              Choose up to two.
-            </h3>
-            <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
-              {flavors.map((flavor) => (
-                <span
-                  key={flavor}
-                  className="rounded-full border border-[#fbfaf6]/18 px-4 py-3 text-center text-sm font-bold text-[#fbfaf6]"
-                >
-                  {flavor}
-                </span>
-              ))}
-            </div>
-          </article>
-        </div>
-
-        <div className="mt-12 grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
-          <MenuCard
-            title="Add ice cream"
-            price={iceCreamAddOn.price}
-            description="Add a scoop under your shave ice."
-            dark
+        <div className="mt-6 flex justify-center">
+          <div
+            className="inline-flex max-w-full gap-1 overflow-x-auto rounded-full border border-[#fbfaf6]/15 bg-[#fbfaf6]/8 p-1"
+            role="tablist"
+            aria-label="Menu categories"
           >
-            <div className="flex flex-wrap gap-2">
-              {iceCreamAddOn.options.map((option) => (
-                <span
-                  key={option}
-                  className="rounded-full bg-[#fbfaf6]/12 px-3 py-2 text-sm font-bold text-[#fbfaf6]/82"
-                >
-                  {option}
-                </span>
-              ))}
-            </div>
-          </MenuCard>
+            {menuTabs.map((tab) => {
+              const isActive = activeTab === tab.id;
 
-          <div>
-            <h3 className="text-2xl font-black tracking-[-0.04em]">Toppings</h3>
-            <p className="mt-2 text-[#fbfaf6]/70">Add toppings for $1.00 each.</p>
-            <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {toppings.map((topping) => (
-                <MenuCard
-                  key={topping.name}
-                  title={topping.name}
-                  price={topping.price}
-                  description={topping.description}
-                  dark
-                />
-              ))}
-            </div>
+              return (
+                <button
+                  key={tab.id}
+                  type="button"
+                  role="tab"
+                  id={`menu-tab-${tab.id}`}
+                  aria-selected={isActive}
+                  aria-controls={`menu-panel-${tab.id}`}
+                  className={`whitespace-nowrap rounded-full px-3 py-2 text-xs font-black uppercase tracking-[0.08em] sm:px-4 ${
+                    isActive
+                      ? "bg-[#fbfaf6] text-[#024731] shadow-sm"
+                      : "text-[#fbfaf6]/76 hover:bg-[#fbfaf6]/12 hover:text-[#fbfaf6]"
+                  }`}
+                  onClick={() => setActiveTab(tab.id)}
+                >
+                  {tab.label}
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        <div className="mt-12 grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
-          <section aria-labelledby="specialties-heading">
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <h3 id="specialties-heading" className="text-3xl font-black tracking-[-0.04em]">
-                  Specialties
-                </h3>
-                <div className="mt-3 space-y-1 text-sm font-bold uppercase tracking-[0.08em] text-[#fbfaf6]/70">
-                  {specialtyNotes.map((note) => (
-                    <p key={note}>{note}</p>
-                  ))}
-                </div>
-              </div>
-              <span className="w-fit rounded-full bg-[#fbfaf6] px-4 py-2 text-sm font-black text-[#024731]">
-                $9.99
-              </span>
-            </div>
-            <div className="mt-6 grid gap-4">
-              {specialties.map((item) => (
-                <MenuCard
-                  key={item.name}
-                  title={item.name}
-                  price={item.price}
-                  description={item.description}
-                  meta={item.allergen}
-                  dark
-                />
-              ))}
-            </div>
-          </section>
-
-          <MenuCard
-            title={iceCreamMenu.title}
-            price={iceCreamMenu.price}
-            meta={iceCreamMenu.serving}
-            description="Simple scoop options served in a cup."
-            dark
+        <div className="mt-6">
+          <div
+            id="menu-panel-build"
+            role="tabpanel"
+            aria-labelledby="menu-tab-build"
+            hidden={activeTab !== "build"}
           >
-            <div className="flex flex-wrap gap-2">
-              {iceCreamMenu.flavors.map((flavor) => (
+            <div className="grid gap-6 lg:grid-cols-[0.78fr_1.22fr]">
+              <article className="rounded-[1.5rem] border border-[#fbfaf6]/12 p-5">
+                <p className="eyebrow text-[0.62rem] font-black text-[#fbfaf6]/58">
+                  Build your own shave ice
+                </p>
+                <h3 className="mt-2 text-xl font-black tracking-[-0.035em]">
+                  How to order
+                </h3>
+                <ol className="mt-4 space-y-3 border-l border-[#fbfaf6]/18 pl-4">
+                  {buildSteps.map((step, index) => (
+                    <li key={step.title} className="relative">
+                      <span className="absolute -left-[1.55rem] top-0 flex h-5 w-5 items-center justify-center rounded-full bg-[#fbfaf6] text-[0.65rem] font-black text-[#024731]">
+                        {index + 1}
+                      </span>
+                      <h4 className="text-sm font-black leading-5 tracking-[-0.02em]">
+                        {step.title}
+                      </h4>
+                      <p className="mt-0.5 text-xs leading-5 text-[#fbfaf6]/66">
+                        {step.description}
+                      </p>
+                    </li>
+                  ))}
+                </ol>
+
+                <div className="mt-5 grid gap-3 text-xs sm:grid-cols-2 lg:grid-cols-1">
+                  <div>
+                    <p className="font-black uppercase tracking-[0.12em] text-[#fbfaf6]/52">
+                      Sizes
+                    </p>
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {sizes.map((size) => (
+                        <span
+                          key={size.name}
+                          className="rounded-full border border-[#fbfaf6]/16 px-2.5 py-1 font-bold text-[#fbfaf6]/82"
+                        >
+                          {size.name} {size.price}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <p className="font-black uppercase tracking-[0.12em] text-[#fbfaf6]/52">
+                      Ice cream add-on {iceCreamAddOn.price}
+                    </p>
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {iceCreamAddOn.options.map((option) => (
+                        <span
+                          key={option}
+                          className="rounded-full bg-[#fbfaf6]/10 px-2.5 py-1 font-bold text-[#fbfaf6]/80"
+                        >
+                          {option}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <div className="grid content-start gap-5">
+                <article>
+                  <div className="flex items-end justify-between gap-4">
+                    <div>
+                      <p className="eyebrow text-[0.62rem] font-black text-[#fbfaf6]/58">
+                        Flavors
+                      </p>
+                      <h3 className="mt-1 text-xl font-black tracking-[-0.035em]">
+                        Choose up to two
+                      </h3>
+                    </div>
+                    <span className="text-xs font-bold text-[#fbfaf6]/52">
+                      {flavors.length} options
+                    </span>
+                  </div>
+                  <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4">
+                    {visibleFlavors.map((flavor) => (
+                      <span
+                        key={flavor}
+                        className="rounded-full border border-[#fbfaf6]/18 px-2.5 py-1.5 text-center text-xs font-bold leading-4 text-[#fbfaf6]/86"
+                      >
+                        {flavor}
+                      </span>
+                    ))}
+                  </div>
+                  {flavors.length > 9 ? (
+                    <button
+                      type="button"
+                      className="mt-3 inline-flex items-center gap-2 rounded-full px-1 text-xs font-black uppercase tracking-[0.1em] text-[#fbfaf6]/72 hover:text-[#fbfaf6]"
+                      aria-expanded={showAllFlavors}
+                      onClick={() => setShowAllFlavors((current) => !current)}
+                    >
+                      {showAllFlavors
+                        ? "Show fewer flavors"
+                        : `Show all flavors${hiddenFlavorCount > 0 ? ` (+${hiddenFlavorCount})` : ""}`}
+                      <span
+                        className={`text-sm transition ${showAllFlavors ? "rotate-180" : ""}`}
+                        aria-hidden="true"
+                      >
+                        ↓
+                      </span>
+                    </button>
+                  ) : null}
+                </article>
+
+                <article>
+                  <p className="eyebrow text-[0.62rem] font-black text-[#fbfaf6]/58">
+                    Toppings
+                  </p>
+                  <h3 className="mt-1 text-xl font-black tracking-[-0.035em]">
+                    Select add-ons
+                  </h3>
+                  <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                    {toppings.map((topping) => {
+                      const isSelected = selectedToppings.includes(topping.name);
+
+                      return (
+                        <button
+                          key={topping.name}
+                          type="button"
+                          aria-pressed={isSelected}
+                          className={`rounded-full border px-3 py-2 text-left text-xs font-bold leading-4 ${
+                            isSelected
+                              ? "border-[#fbfaf6] bg-[#fbfaf6] text-[#024731]"
+                              : "border-[#fbfaf6]/18 text-[#fbfaf6]/86 hover:bg-[#fbfaf6]/10"
+                          }`}
+                          onClick={() => toggleTopping(topping.name)}
+                        >
+                          {topping.name} ({topping.price})
+                        </button>
+                      );
+                    })}
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+
+          <div
+            id="menu-panel-specialties"
+            role="tabpanel"
+            aria-labelledby="menu-tab-specialties"
+            hidden={activeTab !== "specialties"}
+          >
+            <section aria-labelledby="specialties-heading">
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <p className="eyebrow text-[0.62rem] font-black text-[#fbfaf6]/58">
+                    Signature Specialties
+                  </p>
+                  <h3
+                    id="specialties-heading"
+                    className="mt-1 text-2xl font-black tracking-[-0.04em]"
+                  >
+                    Cafe-style combinations
+                  </h3>
+                  <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs font-bold uppercase tracking-[0.08em] text-[#fbfaf6]/56">
+                    {specialtyNotes.map((note) => (
+                      <p key={note}>{note}</p>
+                    ))}
+                  </div>
+                </div>
+                <span className="w-fit rounded-full bg-[#fbfaf6] px-3 py-1.5 text-xs font-black text-[#024731]">
+                  $9.99 each
+                </span>
+              </div>
+
+              <div className="mt-5 grid gap-x-8 gap-y-5 md:grid-cols-2">
+                {specialties.map((item) => (
+                  <article key={item.name} className="border-b border-[#fbfaf6]/10 pb-4">
+                    <div className="flex items-baseline justify-between gap-4">
+                      <h4 className="text-base font-black leading-5 tracking-[-0.02em]">
+                        {item.name}
+                      </h4>
+                      <span className="shrink-0 text-sm font-black text-[#fbfaf6]">
+                        {item.price}
+                      </span>
+                    </div>
+                    {item.allergen ? (
+                      <p className="mt-1 text-[0.68rem] font-black uppercase tracking-[0.12em] text-[#fbfaf6]/48">
+                        {item.allergen}
+                      </p>
+                    ) : null}
+                    <p className="mt-1.5 text-sm leading-6 text-[#fbfaf6]/62">
+                      {item.description}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </section>
+          </div>
+
+          <div
+            id="menu-panel-ice-cream"
+            role="tabpanel"
+            aria-labelledby="menu-tab-ice-cream"
+            hidden={activeTab !== "ice-cream"}
+          >
+            <article className="mx-auto max-w-2xl rounded-[1.5rem] border border-[#fbfaf6]/12 p-5">
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  <p className="eyebrow text-[0.62rem] font-black text-[#fbfaf6]/58">
+                    Ice Cream Cups
+                  </p>
+                  <h3 className="mt-1 text-2xl font-black tracking-[-0.04em]">
+                    {iceCreamMenu.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-[#fbfaf6]/62">
+                    {iceCreamMenu.serving} service, simple scoop options.
+                  </p>
+                </div>
+                <span className="w-fit rounded-full bg-[#fbfaf6] px-3 py-1.5 text-xs font-black uppercase tracking-[0.08em] text-[#024731]">
+                  {iceCreamMenu.price}
+                </span>
+              </div>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {iceCreamMenu.flavors.map((flavor) => (
                 <span
                   key={flavor}
-                  className="rounded-full bg-[#fbfaf6]/12 px-3 py-2 text-sm font-bold text-[#fbfaf6]/82"
+                  className="rounded-full border border-[#fbfaf6]/18 px-3 py-1.5 text-xs font-bold text-[#fbfaf6]/86"
                 >
                   {flavor}
                 </span>
               ))}
-            </div>
-          </MenuCard>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
