@@ -71,68 +71,54 @@ select:focus-visible {
   text-transform: uppercase;
 }
 
-.image-wheel-scroll {
+@keyframes imageWheelSpin {
+  from {
+    transform: translateX(-50%) rotate(0deg);
+  }
+
+  to {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}
+
+.image-wheel-frame {
+  position: relative;
   width: 100vw;
   max-width: 100vw;
-  height: clamp(330px, 48vw, 540px);
+  height: clamp(420px, 54vw, 660px);
   margin-inline: calc(50% - 50vw);
-  overflow-x: auto;
-  overflow-y: hidden;
-  overscroll-behavior-x: contain;
-  scrollbar-width: none;
-  cursor: grab;
-  touch-action: pan-x;
-  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
+  pointer-events: none;
 }
 
-.image-wheel-scroll::-webkit-scrollbar {
-  display: none;
-}
-
-.image-wheel-scroll.is-dragging {
-  cursor: grabbing;
-  user-select: none;
-}
-
-.image-wheel-stage {
-  position: relative;
-  min-width: 1800px;
-  margin-inline: auto;
-  overflow: visible;
-}
-
-.image-wheel-arc {
+.image-wheel-orbit {
   position: absolute;
   left: 50%;
-  bottom: -52%;
-  width: 960px;
-  height: 960px;
-  transform: translateX(-50%);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 9999px;
-  background: var(--warm-white);
-  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.06);
-}
-
-.image-wheel-card {
-  position: absolute;
-  margin: 0;
-  transform-origin: center center;
-  border-radius: 0.2rem;
-  background: rgba(251, 250, 246, 0.82);
-  box-shadow:
-    0 28px 48px rgba(0, 0, 0, 0.16),
-    0 8px 18px rgba(0, 0, 0, 0.1);
+  bottom: clamp(-1040px, -72vw, -760px);
+  transform-origin: 50% 50%;
+  animation: imageWheelSpin 34s linear infinite;
   will-change: transform;
 }
 
-.image-wheel-card img {
+.image-wheel-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  transform-origin: center center;
+}
+
+.image-wheel-item img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
   pointer-events: none;
   user-select: none;
+  filter:
+    drop-shadow(0 28px 44px rgba(0, 0, 0, 0.22))
+    drop-shadow(0 8px 14px rgba(0, 0, 0, 0.12));
 }
 
 .heritage-pattern {

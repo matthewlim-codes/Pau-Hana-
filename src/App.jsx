@@ -44,7 +44,7 @@ function Hero() {
     <section
       id="home"
       className="relative overflow-hidden py-16 sm:py-20 lg:py-28"
-      style={{ minHeight: 620 }}
+      style={{ minHeight: 700 }}
     >
       {/* Gradient fade so the wheel emerges subtly from below */}
       <div
@@ -59,14 +59,14 @@ function Hero() {
         }}
       />
 
-      {/* Scrollable lower-arc image wheel */}
+      {/* Self-spinning lower-arc image wheel */}
       <div
         style={{
           position: "absolute",
           right: 0,
-          bottom: -58,
+          bottom: -72,
           left: 0,
-          pointerEvents: "auto",
+          pointerEvents: "none",
           zIndex: 0,
         }}
       >
