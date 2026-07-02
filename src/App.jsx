@@ -50,18 +50,6 @@ function Hero() {
               Visit Us
             </ButtonLink>
           </div>
-          <dl className="mt-10 grid gap-4 sm:grid-cols-3">
-            {[
-              ["Palette", "Mānoa Green + Black"],
-              ["Focus", "Shave ice only"],
-              ["Home", "San Jose Japantown"],
-            ].map(([term, detail]) => (
-              <div key={term} className="rounded-3xl border border-[#024731]/12 bg-white/70 p-4">
-                <dt className="eyebrow text-[0.65rem] font-black text-[#024731]">{term}</dt>
-                <dd className="mt-2 text-sm font-bold text-black">{detail}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
 
         <div className="relative">
@@ -307,15 +295,15 @@ function LocationHours() {
           <div className="mt-8 grid gap-6 sm:grid-cols-2">
             <address className="not-italic leading-7 text-black/70">
               <strong className="block text-black">Address</strong>
-              123 Japantown Way
+              248 Jackson St.
               <br />
               San Jose, CA 95112
             </address>
             <div className="leading-7 text-black/70">
               <strong className="block text-black">Hours</strong>
-              Mon-Thu 12-8
+              Mon-Fri 1-6PM
               <br />
-              Fri-Sun 11-9
+              Sat-Sun 1-6:30PM
             </div>
           </div>
           <ButtonLink href="#contact" className="mt-8">
