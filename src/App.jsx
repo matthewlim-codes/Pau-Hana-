@@ -104,38 +104,6 @@ function Hero() {
   );
 }
 
-function FeaturedCombinations() {
-  return (
-    <section className="py-16 sm:py-20" aria-labelledby="featured-heading">
-      <div className="shell">
-        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-          <SectionHeading
-            eyebrow="Featured combinations"
-            title="House ideas for your next shave ice."
-          >
-            Simple, balanced combinations that make ordering easy while keeping
-            the menu focused on shave ice.
-          </SectionHeading>
-          <ButtonLink href="#menu" variant="secondary" className="md:mb-2">
-            Explore all options
-          </ButtonLink>
-        </div>
-        <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {specialties.map((item) => (
-            <MenuCard
-              key={item.name}
-              title={item.name}
-              price={item.price}
-              description={item.description}
-              meta={item.allergen ?? "Specialty | regular size only"}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function BrandStoryPreview() {
   return (
     <section className="bg-[#024731] py-16 text-[#fbfaf6] sm:py-20">
@@ -630,7 +598,6 @@ function App() {
       <SiteHeader />
       <main>
         <Hero />
-        <FeaturedCombinations />
         <BrandStoryPreview />
         <About />
         <ShaveIceMenu />
